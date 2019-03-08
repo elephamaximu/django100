@@ -1,0 +1,69 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+
+{{article|linebreaks}}
+{{article.title|linebreaks}}
+{{first_name|linebreaks}}
+{{people|linebreaks}}
+{{people.0|linebreaks}}
+{{person|linebreaks}}
+{{person.say_hello|linebreaks}}
+
+{% for st in student_list %}
+    {{st}}
+{% empty %}
+    <h1>학새정보가 없습니다.</h1>
+{% endfor %}
+<hr>
+
+{% if student_list %}
+    {% for st in student_list  %}
+        {{st}}
+    {% endfor %}
+{% else %}
+    <h1>하악생 정보가 없습니다.</h1>
+{% endif %}
+
+<hr>
+{% lorem 3 p %}
+<hr>
+{% lorem 2 w random %}
+
+<hr>
+It is {% now "Y-m-d H:i" %}
+<hr>
+{% now "jS F Y H:i" %}
+
+<hr>
+1.{{ value|default:"nothing" }}<br>
+2.{{ value2|default_if_none:"nothing" }}<br>
+3.{{ value3|join:"//"}}<br>
+4.문자길이:{{ value3|length }}<br>
+5.문자길이와 조인:{% with data="파이\n썬"%}
+   {{data|length}}<br>
+   {{data|join:","}}
+ {% endwith%}
+6. {{value3|linebreaks}}
+7. {{value3|random}} <br>
+8. {{value3|slice:":2" }}<br>
+8. {{value3|slice:":2"|length }}<br>
+9. {% with data="<b>우리프로젝트</b> <button>담주</button>에  <span>시작!!!!</span>" %}<br>
+   {{ data|striptags }}
+ {% endwith%}
+<hr>
+{% with value="Joel is a slug" %}
+  {{ value|truncatewords:2 }} <br>
+{% endwith%}
+
+{% with value="<p>Joel is a slug</p>" %}
+  {{ value|truncatewords_html:2 }}<br>
+{% endwith%}
+
+{% with value="https://www.example.org/foo?a=b&c=d" %}
+  {{ value|urlencode }} <br>
+{% endwith%}
+
+
+{% endblock content %}
+

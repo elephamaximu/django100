@@ -1,0 +1,13 @@
+{% extends "shop/layout.html" %}
+{% block title %}
+    상세보기:{{article.id}}
+{% endblock title %}
+
+{% block content %}
+    <h1>상세보기--------detail2</h1>
+    {{article|linebreaks}}
+    {{article.id|linebreaks}}
+    {{article.title|linebreaks}}
+    {{article.body|linebreaks}}
+    {{article.status|linebreaks}}
+{% endblock content %}

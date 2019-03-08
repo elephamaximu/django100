@@ -1,0 +1,15 @@
+<h1>책 리스트</h1>
+
+<hr>
+<a href="{% url 'book:new' %}">입력하기</a>
+<hr>
+<ul>
+{% for book in book_list  %}
+    <li>
+        <a href='{% url 'book:detail' book.id %}'>{{book.title}}</a>
+        {{book.author}}
+        <button onclick="location.href='{% url 'book:edit' book.id  %}'">수정하기</button>
+        <button onclick="location.href='{% url 'book:delete' book.id  %}'">삭제하기</button>
+    </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,38 @@
+{% extends "shop/layout.html" %}
+
+{% block title %}
+  Article 목록
+{% endblock title %}
+
+{% block content %}
+{% block aa %}
+99999
+{% endblock aa %}
+
+<h1>Article목록보기 ---- {{mymessage}}----{{today}}</h1>
+<form action="" method="get">
+  입력:<input type="text" name="q" value="{{q2}}"><br>
+  <input type="submit" value="검색">
+</form>
+
+<button onclick="location.href='insert/'">입력하기</button>
+<button onclick="location.href='update/'">수정하기</button>
+<button onclick="location.href='delete/'">삭제하기</button>
+<button onclick="location.href='test1/'">reverse연습1</button>
+<button onclick="location.href='{% url 'shop:rtest1' %}'">reverse연습2</button>
+<a href='{% url 'shop:rtest1'  %}'>reverse 연습 3</a>
+
+<hr>
+<ul>
+{% for article in article_list %}
+  <li> {{forloop.counter0}}
+    <a href="{{article.id}}/detail">{{article.title}}</a>
+    <a href="{% url 'shop:detail' article.id %}">{{article.title}}</a>
+    <a href='{{article.get_absolute_url2}}'>{{article.title}}</a>
+    <button onclick="location.href='{% url 'shop:edit' article.id  %}'">수정하기</button>
+    <button onclick="location.href='{% url 'shop:del' article.id  %}'">삭제하기</button>
+  </li>
+{% endfor %}
+</ul>
+{% endblock content %}
+

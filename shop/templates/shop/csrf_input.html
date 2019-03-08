@@ -1,0 +1,15 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    
+    <input type="text" name="title">
+    <input type="text" name="body">
+    <input type="radio" name="status" value="d">draft
+    <input type="radio" name="status" value="p">published
+    <input type="radio" name="status" value="w">withdrawn
+    <input type="submit" value="확인">
+</form>
+{% endblock content %}

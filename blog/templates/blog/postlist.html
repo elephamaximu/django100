@@ -1,0 +1,20 @@
+<h1>post list정보입니다.</h1>
+
+<ul>
+{% for post in post_list %}
+  <li><a href="/blog/{{post.id}}/"> {{post.title}}</a> </li>    
+{% endfor %}
+</ul>
+
+<hr>
+
+<ul>
+{% for post in post_list %}
+  <li><a href="{% url 'blog:detail' post.id %}"> {{post.title}}</a> </li>    
+{% endfor %}
+</ul>
+
+
+
+
+ 

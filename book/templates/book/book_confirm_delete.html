@@ -1,0 +1,7 @@
+<h1>삭제확인</h1>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="button" onclick='location.href="{% url 'book:book_list' %}"' value="아니요" />
+    <input type="submit" value="예, 삭제하겠습니다." />
+</form>
