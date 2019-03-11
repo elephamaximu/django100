@@ -11,4 +11,5 @@ urlpatterns = [
     path("new/", views.book_new, name="new"),
     path("<pk>/edit/", views.book_edit, name="edit"),
     path("<pk>/delete/", views.book_delete, name="delete"),
+    path("searchData/", views.searchData, name='search'),
 ]

@@ -1,12 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/test.css">
+<title>상세보기</title>
+</head>
+<body>
+<div class="container header">
+    <div class="row">
 <h1>상세보기</h1>
-<hr>
+    
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
 
 아이디 : {{book.id|linebreaks}}
+    </div>
+</div>
 <hr>
+<div class="container">
+    <div class="row">
+
 책이름 : {{book.title|linebreaks}}
+    </div>
+</div>
+
 <hr>
+<div class="container">
+    <div class="row">
+
 작가 : {{book.author|linebreaks}}
+    </div>
+</div>
+
 <hr>
+<div class="container">
+    <div class="row">
+
 출판사 : {{book.publisher|linebreaks}}
+    </div>
+</div>
+
 <hr>
+<div class="container">
+    <div class="row">
+
 출시일 : {{book.publication_date|linebreaks}}
+    </div>
+</div>
+
+<img src="/media/{{book.photo}}" alt="">
+<img src="/media/{{book.photo2}}" alt="">
+<img src="/media/{{book.photo3}}" alt="">
+{% if book.photo %}
+    <img src="/{{book.photo.url}}" alt="">
+    <img src="/{{book.photo2.url}}" alt="">
+    <img src="/{{book.photo3.url}}" alt="">
+{% else %}
+    이미지가 없어요
+{% endif %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>

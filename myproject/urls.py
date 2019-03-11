@@ -32,7 +32,7 @@ urlpatterns = [
     path('scoops/',include('scoops.urls') ),
     path('bookmark/',include('bookmark.urls') ),
     path('shop/',include('shop.urls') ),
-    path('book/',include('book.urls'))
+    path('book/',include('book.urls') ),
 
 ]
 
@@ -42,3 +42,6 @@ if settings.DEBUG:
     urlpatterns += [
         path('__debug__/', include(debug_toolbar.urls))
     ]
+
+from django.conf.urls.static import static
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
